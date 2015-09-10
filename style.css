@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'track';
+  src: url("./fonts/Track.otf"); }
+
+@font-face {
+  font-family: 'lovelo';
+  src: url("./fonts/Lovelo Line Bold.otf"); }
+
+@font-face {
+  font-family: 'sequi';
+  src: url("./fonts/Sequi_regular.otf"); }
+
+.shadow-nav {
+	height: 50px;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+    right: 0px;
+    left: -550px;
+    width: 100%;
+    list-style: none;
+    display: block;
+    background-color: white;
+}
+
+#map {
+	height: 90vh;
+}
+
+.navbar-inverse {
+	background-color: #fc9a24;
+	border: none;
+}
+
+.nav-element {
+	color: white !important;
+	transition: 0.2s linear;
+}
+
+.nav-element:hover {
+	color: #fc9a24 !important;
+	background-color: white !important;
+}
+
+body {
+	color: black;
+	font-family: 'track';
+	font-size: 20px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.scrollable-menu > li { padding: 10px; }
+
+.input-field {
+	z-index: 1001;
+	background-color:white;
+	width: 100%;
+}
+
+.checkpoint {
+	padding: 30px;
+	height: 150px;
+	overflow: visible;
+}
+
+.notification {
+	padding: 30px;
+}
+
+.form-control {
+	border: 1px solid #ffd27f;
+	border-radius: 0px;
+	font-size: 12px;
+}
+
+.city {
+	color: #fc9a24 !important;
+	font-size: 12px;
+	transition: 0.1s linear;
+}
+
+.city:hover {
+	background-color: #ffedcc;
+	color: white;
+}
+
+.city > a {
+	color: black;
+	text-decoration: none;
+}
+
+.col-lg-6 {
+	padding-top: 15px;
+}
