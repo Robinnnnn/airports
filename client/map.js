@@ -3,6 +3,7 @@ var markers = [];
 var geodesicPoly;
 
 function initMap() {
+	// Initialize map over USA
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {
 			lat: 39.09024,
@@ -12,6 +13,7 @@ function initMap() {
 		mapTypeId: google.maps.MapTypeId.HYBRID
 	});
 
+	// Helper functions for map markers & paths ...
 	function setMapOnAll(map) {
 		for (var i = 0; i < markers.length; i++) {
 			markers[i].setMap(map);
@@ -25,12 +27,15 @@ function initMap() {
 	function clearPath() {
 		geodesicPoly.setMap(null);
 	}
+	// ... end helper functions
 
 	var firstMarker = false;
 
+	// Listener that triggers when a user chooses an airport
 	$(".draw-marker").click(function(e) {
 		e.preventDefault();
 
+		// Clear map
 		var bounds = new google.maps.LatLngBounds();
 		if (geodesicPoly) {
 			clearPath();
@@ -39,6 +44,7 @@ function initMap() {
 		markers = [];
 		var path = [];
 
+		// Draw markers according to chosen airport coordinates
 		for (var key in coordinates) {
 			var latLng = coordinates[key];
 			if (latLng) {
@@ -60,6 +66,7 @@ function initMap() {
 		}
 		map.fitBounds(bounds);
 
+		// Create curved path
 		geodesicPoly = new google.maps.Polyline({
 			path: path,
 			strokeColor: '#00ffc5',
@@ -70,6 +77,7 @@ function initMap() {
 		});
 		geodesicPoly.setMap(map);
 
+		// Prevent hyper zoom-in upon first airport choice
 		if (!firstMarker) {
 			map.setZoom(4);
 			firstMarker = true;

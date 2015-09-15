@@ -1,5 +1,6 @@
 var app = angular.module('AirportApp', []);
 
+// global coordinates accessible by map.js
 var coordinates = {
 	from: null,
 	destination: null
@@ -10,12 +11,17 @@ app.controller('AirportController', function(AirportFactory, $scope) {
 	$scope.destination;
 	$scope.distance;
 	$scope.alert;
+	$scope.searchText = {};
+	$scope.focused = {};
 
+	// Make factory request to back-end for all US airports
+	// then set those airports to the current scope.
+	// See: airportFactory.js
 	AirportFactory.getAirports().then(function(airports) {
 		$scope.airports = airports;
 	})
 
-	// prevents user from choosing the same airport twice
+	// Prevent user from choosing the same airport twice
 	function userChoseSameAirport(airport, fromOrTo) {
 		return (fromOrTo === 'destination' && $scope.from && $scope.from.name === airport.name) || (fromOrTo === 'from' && $scope.destination && $scope.destination.name === airport.name);
 	}
@@ -24,6 +30,8 @@ app.controller('AirportController', function(AirportFactory, $scope) {
 		return ($scope.from && $scope.destination);
 	}
 
+	// Make API call to calculate distance based on user's
+	// choices, convert to nautical miles
 	function calculateDistance() {
 		if (bothAirportsAreSelected()) {
 			AirportFactory.calculateDistance($scope.from.code, $scope.destination.code)
@@ -33,9 +41,6 @@ app.controller('AirportController', function(AirportFactory, $scope) {
 				});
 		}
 	}
-
-	$scope.searchText = {};
-	$scope.focused = {};
 
 	$scope.selectAirport = function(airport, fromOrTo) {
 		$scope.focused = {};
@@ -56,7 +61,24 @@ app.controller('AirportController', function(AirportFactory, $scope) {
 	}
 
 	$scope.focus = function(fromOrTo) {
-		console.log('focusing', fromOrTo)
 		$scope.focused[fromOrTo] = true;
 	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

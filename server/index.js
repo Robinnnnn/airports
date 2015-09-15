@@ -1,17 +1,19 @@
 var router = require('express').Router();
 var request = require('request');
 var path = require('path');
-var usAirports = require('./usAirports').usAirports;
+var usAirports = require('./data/usAirports').usAirports;
 
 router.get('/', function(req, res, next) {
-    var index = path.join(__dirname, 'index.html')
+    var index = path.join(__dirname, '../index.html')
     res.sendFile(index);
 });
 
+// send all US airports to front end
 router.get('/airports', function(req, res, next) {
     res.status(200).send(usAirports);
 })
 
+// API call for calculating distance between airports
 router.post('/distance', function(req, res, next) {
     var key = '341144e09075dfdc917f0e94e2be9bf0'
     var requestUrl = 'https://airport.api.aero/airport/distance/' +
@@ -25,7 +27,7 @@ router.post('/distance', function(req, res, next) {
         if (!error && response.statusCode === 200) {
             res.status(200).send(body)
         } else {
-            console.log("Error! ", err);
+            console.log("Error! ", error);
         }
     })
 })

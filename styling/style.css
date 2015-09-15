@@ -10,26 +10,6 @@
   font-family: 'sequi';
   src: url("./fonts/Sequi_regular.otf"); }
 
-.shadow-nav {
-	height: 50px;
-}
-
-.scrollable-menu {
-    height: auto;
-    max-height: 150px;
-    overflow-x: hidden;
-    right: 0px;
-    left: -550px;
-    width: 100%;
-    list-style: none;
-    display: block;
-    background-color: white;
-}
-
-#map {
-	height: 90vh;
-}
-
 .navbar-inverse {
 	background-color: #fc9a24;
 	border: none;
@@ -45,6 +25,10 @@
 	background-color: white !important;
 }
 
+.shadow-nav {
+	height: 50px;
+}
+
 body {
 	color: black;
 	font-family: 'track';
@@ -56,13 +40,19 @@ ul {
     list-style-type: none;
 }
 
-.scrollable-menu > li { padding: 10px; }
-
-.input-field {
-	z-index: 1001;
-	background-color:white;
-	width: 100%;
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+    right: 0px;
+    left: -550px;
+    width: 100%;
+    list-style: none;
+    display: block;
+    background-color: white;
 }
+
+.scrollable-menu > li { padding: 10px; }
 
 .checkpoint {
 	padding: 30px;
@@ -70,8 +60,10 @@ ul {
 	overflow: visible;
 }
 
-.notification {
-	padding: 30px;
+.input-field {
+	z-index: 1001;
+	background-color:white;
+	width: 100%;
 }
 
 .form-control {
@@ -96,6 +88,14 @@ ul {
 	text-decoration: none;
 }
 
+.notification {
+	padding: 30px;
+}
+
 .col-lg-6 {
 	padding-top: 15px;
+}
+
+#map {
+	height: 90vh;
 }
