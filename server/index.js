@@ -4,7 +4,7 @@ var path = require('path');
 var usAirports = require('./data/usAirports').usAirports;
 
 router.get('/', function(req, res, next) {
-    var index = path.join(__dirname, './index.html')
+    var index = path.join(__dirname, '../index.html')
     res.sendFile(index);
 });
 
